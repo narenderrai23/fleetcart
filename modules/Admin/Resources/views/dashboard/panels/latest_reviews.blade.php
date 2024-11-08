@@ -15,29 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($latestReviews as $latestReview)
-                    <tr>
-                        <td>
-                            <a href="{{ route('admin.reviews.edit', $latestReview) }}">
-                                {{ $latestReview->product->name }}
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.reviews.edit', $latestReview) }}">
-                                {{ $latestReview->reviewer_name }}
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.reviews.edit', $latestReview) }}">
-                                {{ $latestReview->rating }}
-                            </a>
-                        </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td class="empty" colspan="5">{{ trans('admin::dashboard.no_data') }}</td>
-                    </tr>
-                @endforelse
+
             </tbody>
         </table>
     </div>

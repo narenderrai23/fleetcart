@@ -16,36 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($latestOrders as $latestOrder)
-                    <tr>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $latestOrder) }}">
-                                {{ $latestOrder->id }}
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $latestOrder) }}">
-                                {{ $latestOrder->customer_full_name }}
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $latestOrder) }}">
-                                <span class="badge {{ order_status_badge_class($latestOrder->status) }}">
-                                    {{ $latestOrder->status() }}
-                                </span>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $latestOrder) }}">
-                                {{ $latestOrder->total->format() }}
-                            </a>
-                        </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td class="empty" colspan="5">{{ trans('admin::dashboard.no_data') }}</td>
-                    </tr>
-                @endforelse
+
             </tbody>
         </table>
     </div>

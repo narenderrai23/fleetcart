@@ -1,9 +1,0 @@
-{
-    "name": "Variation",
-    "alias": "variation",
-    "description": "The FleetCart Variation Module.",
-    "priority": 90,
-    "providers": [
-        "Modules\\Variation\\Providers\\VariationServiceProvider"
-    ]
-}

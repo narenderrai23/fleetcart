@@ -29,18 +29,11 @@
             @hasAccess('admin.orders.index')
                 @include('admin::dashboard.panels.sales_analytics')
             @endHasAccess
-
-            @hasAccess('admin.orders.index')
-                @include('admin::dashboard.panels.latest_orders')
-            @endHasAccess
         </div>
 
         <div class="col-md-5">
             @include('admin::dashboard.panels.latest_searches')
 
-            @hasAccess('admin.reviews.index')
-                @include('admin::dashboard.panels.latest_reviews')
-            @endHasAccess
         </div>
     </div>
 @endsection

@@ -1,7 +1,6 @@
 <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="single-grid total-orders">
         <div>
-            <span class="count">{{ $totalOrders }}</span>
 
             <span class="title">{{ trans('admin::dashboard.total_orders') }}</span>
         </div>

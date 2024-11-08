@@ -5,7 +5,6 @@ namespace Modules\Admin\Http\Controllers\Admin;
 use Illuminate\Http\Response;
 use Modules\User\Entities\User;
 use Modules\Order\Entities\Order;
-use Modules\Review\Entities\Review;
 use Modules\Product\Entities\Product;
 use Modules\Product\Entities\SearchTerm;
 use Illuminate\Database\Eloquent\Collection;
@@ -21,12 +20,9 @@ class DashboardController
     {
         return view('admin::dashboard.index', [
             'totalSales' => Order::totalSales(),
-            'totalOrders' => Order::withoutCanceledOrders()->count(),
             'totalProducts' => Product::withoutGlobalScope('active')->count(),
             'totalCustomers' => User::totalCustomers(),
             'latestSearchTerms' => $this->getLatestSearchTerms(),
-            'latestOrders' => $this->getLatestOrders(),
-            'latestReviews' => $this->getLatestReviews(),
         ]);
     }
 
@@ -54,18 +50,4 @@ class DashboardController
         ])->latest()->take(5)->get();
     }
 
-
-    /**
-     * Get latest five reviews.
-     *
-     * @return Collection
-     */
-    private function getLatestReviews()
-    {
-        return Review::select('id', 'product_id', 'reviewer_name', 'rating')
-            ->has('product')
-            ->with('product:id')
-            ->limit(5)
-            ->get();
-    }
 }
